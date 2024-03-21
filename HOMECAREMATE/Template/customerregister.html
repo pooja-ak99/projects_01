@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<body style="background-color:#bfbfbf">
+<center>
+  <h3 style="font-weight:bold;margin-top:20px">Want to book for home services? Register here.</h3>
+    <h5>Already Registered?<a class="nav-link active" aria-current="page" href="{% url 'login' %}" style="display:inline;font-size:20px;">Click to login</a></h5>
+  <br>
+  <form method="POST">
+    {% csrf_token %}
+
+<div style="width:500px">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="mb-3">
+  <label class="form-label"><b>Username</b></label>
+  <input type="text" class="form-control" name="u" placeholder="Enter username">
+</div>
+
+    <div class="mb-3">
+  <label class="form-label"><b>Password</b></label>
+  <input type="password" class="form-control" name="p" placeholder="Enter password">
+</div>
+
+    <div class="mb-3">
+  <label class="form-label"><b>Confirm Password</b></label>
+  <input type="password" class="form-control" name="cp" placeholder="Confirm password">
+</div>
+
+    <div class="mb-3">
+  <label class="form-label"><b>Email</b></label>
+  <input type="email" class="form-control" name="e" placeholder="Enter Email">
+</div>
+
+    <div class="mb-3">
+  <label class="form-label"><b>Phone</b></label>
+  <input type="text" class="form-control" name="m" placeholder="Enter Contact number">
+</div>
+
+    <div class="mb-3">
+  <label class="form-label"><b>Address</b></label>
+  <input type="text" class="form-control" name="a" placeholder="Enter Address">
+</div>
+
+
+      <input type="submit" class="form control" style="background-color:#97bbbd;font-weight:bold">
+
+</form>
+</div>
+
+    </form>
+</center>
+
+</body>
+{% endblock %}

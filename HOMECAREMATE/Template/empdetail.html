@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body style="background-color:">
+<center>
+    <h2>Contacts of Our Service-Providers</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+        {% for i in e %}
+        <tr>
+            <td>{{i.username}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.address}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+
+{% endblock %}
+

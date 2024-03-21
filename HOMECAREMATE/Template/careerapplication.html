@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<body style="background-color:#bfbfbf">
+<center>
+  <h3 style="font-weight:bold;margin:30px">Fill the application form and get notified when new roles that match your interest open up.</h3>
+  <br>
+
+<div style="width:1000px;background-color:#a6a6a6">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+  <div class="m-3">
+  <label class="form-label" style="text-align:left"><b>Fullname</b></label>
+  <input type="text" class="form-control" name="n" placeholder="Fullname">
+</div>
+            </div>
+
+<div class="col-6">
+    <div class="m-3">
+  <label class="form-label"><b>Date of Birth</b></label>
+  <input type="date" class="form-control" name="b" placeholder="Date of Birth">
+</div>
+    </div>
+        </div>
+
+    <div class="row">
+        <div class="col-6">
+    <div class="m-3">
+  <label class="form-label"><b>Phone</b></label>
+      <input type="text" class="form-control" name="p" placeholder="Phone number">
+</div>
+        </div>
+
+        <div class="col-6">
+    <div class="m-3">
+  <label class="form-label"><b>Email</b></label>
+  <input type="email" class="form-control" name="e" placeholder="Email">
+</div>
+        </div>
+    </div>
+
+    <div class="m-3">
+  <label class="form-label"><b>Address</b></label>
+  <input type="text" style="height:150px" class="form-control" name="a" placeholder="Contact Address">
+</div>
+
+    <div class="row">
+        <div class="col-6">
+    <div class="m-3">
+  <label class="form-label"><b>Qualification</b></label>
+  <input type="text" class="form-control" name="q" placeholder="Highest Qualification">
+</div>
+        </div>
+        <div class="col-6">
+            <div class="m-3">
+  <label class="form-label"><b>Skills</b></label>
+  <input type="text" class="form-control" name="s" placeholder="Skills">
+</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+    <div class="m-3">
+  <label class="form-label"><b>Current location</b></label>
+  <input type="text" class="form-control" name="l" placeholder="Current location">
+</div>
+        </div>
+
+        <div class="col-6">
+    <div class="m-5">
+  <label class="form-label"><b>Gender</b></label>
+        <select id="gender" name="g">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+        </select>
+</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+    <div class="m-3">
+  <label class="form-label"><b>Resume</b></label>
+  <input type="file" class="form-control" name="r">
+</div>
+        </div>
+        <div class="col-4">
+    <div class="m-3">
+  <label class="form-label"><b>ID Proof</b></label>
+  <input type="file" class="form-control" name="i">
+</div>
+        </div>
+
+        <div class="col-4">
+    <div class="m-3">
+  <label class="form-label"><b>Photo</b></label>
+  <input type="file" class="form-control" name="f">
+</div>
+        </div>
+    </div>
+
+<br><br>
+
+      <input type="submit" class="form control m-3" style="background-color:#97bbbd;font-weight:bold">
+
+</form>
+</div>
+</center>
+</body>
+{% endblock %}

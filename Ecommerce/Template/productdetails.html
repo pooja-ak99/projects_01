@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if allpro1 %}
+<div class="container-fluid" style="margin-bottom:50px">
+    <div class="row">
+        <div class="col-sm-6" style="height:500px">
+            <center>
+                <img src="{{allpro1.image.url}}" style="height:480px;width:400px;margin-top:5px">
+            </center>
+        </div>
+        <div class="col-sm-6">
+            <h3 style="margin-top:50px;margin-left:10px"><b>{{allpro1.name}}</b></h3>
+            <h5 style="margin-left:10px;color:gray">{{allpro1.description}}</h5>
+            <h5 style="margin-left:10px;">Stock: {{allpro1.stock}}</h5>
+            <h4 style="margin-left:10px"><b>Rs.{{allpro1.price}}</b></h4><br>
+
+            {% if user.is_superuser == False %}
+            {% if allpro1.stock <= 0 %}
+            <h3 style="color:red">Out of Stock</h3>
+            {% else %}
+            <a href="{% url 'Cart:addtocart' allpro1.name %}" class="btn btn-danger pt-2" style="height:55px;width:200px;font-size:20px"><i class="fa-solid fa-cart-shopping"></i>
+                ADD TO CART</a>
+            {% endif %}
+
+            {% else %}
+            {% if allpro1.stock <= 0 %}
+            <h3 style="color:red">Out of Stock</h3>
+            <a href="{% url 'admin:index' %}" class="btn btn-warning pt-2" style="height:55px;width:200px;font-size:20px">
+                ADD STOCK</a>
+            {% else %}
+            <h3 style="color:orange">Product in Stock</h3>
+            <a href="{% url 'admin:index' %}" class="btn btn-success pt-2" style="height:55px;width:200px;font-size:20px">
+                ADD STOCK</a>
+            {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

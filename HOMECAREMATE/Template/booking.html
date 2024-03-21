@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<body style="background-color:#bfbfbf">
+<center>
+  <h2 style="font-weight:bold;margin:30px">Book for a Service Now!</h2>
+
+<div style="width:500px;background-color:#a6a6a6">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12">
+  <div class="m-3">
+  <label class="form-label" style="text-align:left"><b>Name</b></label>
+  <input type="text" class="form-control" name="n" placeholder="Fullname">
+</div>
+            </div>
+
+        <div class="row">
+<div class="col-6">
+    <div class="m-3">
+  <label class="form-label"><b>Phone</b></label>
+  <input type="text" class="form-control" name="p" placeholder="Contact number">
+</div>
+    </div>
+
+        <div class="col-6">
+    <div class="m-3">
+  <label class="form-label"><b>Email</b></label>
+  <input type="email" class="form-control" name="e" placeholder="Email">
+</div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6">
+<!--   <input class="form-control" name="s" type="text" style="width:100px" value="service" aria-label="readonly input example" readonly>-->
+    <div class="m-3">
+  <label class="form-label"><b>Service</b></label>
+  <select class="form-select border-0" name="c" style="height: 40px;">
+      <option value="0">choose service</option>
+      {% for i in catlink %}
+      <option>{{i.category_name}}</option>
+      {% endfor %}
+  </select>
+</div>
+        </div>
+        <div class="col-6">
+            <div class="m-3">
+  <label class="form-label"><b>Service Date</b></label>
+  <input type="date" class="form-control" name="d" placeholder="Skills">
+</div>
+        </div>
+    </div>
+
+        <div class="row">
+        <div class="col-12">
+    <div class="m-3">
+  <label class="form-label"><b>Special Request</b></label>
+  <input type="text" class="form-control" name="r" placeholder="Message">
+</div>
+        </div>
+    </div>
+
+<br><br><br>
+<center>
+
+      <input type="submit" class="form control btn m-3" style="background-color:#97bbbd;font-weight:bold;width:350px">
+    </center>
+    </div>
+
+</form>
+</div>
+
+    </form>
+</center>
+</body>
+
+{% endblock %}

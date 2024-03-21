@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!--1st block start-->
+<div class="container" style="width:1000px;margin-top:75px">
+  <center>
+    <h1>Welcome to Our Career Opportunities</h1>
+    <p style="font-size:25px">Discover exciting career opportunities and join our team!</p><br>
+    <h3>We are aware that it might take a while to find a fulfilling and meaningful work. Our objective is to facilitate that process for you and to establish a stimulating work atmosphere that you will look forward to each day.</h3>
+    <br><br>
+    <h3></h3>
+    <a class="btn btn-danger py-3" href="{% url 'careerapply' %}" style="font-size:25px">Click here to Join Us ></a>
+  </center>
+</div>
+<!--1st block end-->
+<br><br>
+
+<!--2nd block start-->
+<div class="container-fluid">
+  <img src="{% static 'image/cover9.jpg' %}" style="width:100%">
+</div>
+<!--2nd block end-->
+
+<!--3rd block start-->
+<div class="container" style="margin-top:40px">
+  <center>
+    <h2>Company Culture and Values</h2>
+    <p style="font-size:25px">At our Company, we value individuality, teamwork, innovation, and excellence.</p>
+  </center>
+</div>
+
+<div class="container" style="margin-top:40px">
+  <center>
+    <h2>Benefits and Perks</h2>
+    <p style="font-size:25px">We offer competitive salaries, bonuses, health insurance, and more.</p>
+  </center>
+</div>
+
+<div class="container" style="margin-top:40px">
+  <center>
+    <h2>Application Process</h2>
+    <p style="font-size:25px">To apply for a position, please fill out our online application form.</p>
+    <p style="font-size:25px">We will review your application and contact you if you are selected for an interview.</p>
+    <a class="btn btn-danger py-3" href="{% url 'careerapply' %}" style="font-size:20px">Click here to fill application form ></a>
+  </center>
+</div>
+
+<div class="container" style="margin-top:40px">
+  <center>
+    <h2>Employee Development and Growth Opportunities</h2>
+    <p style="font-size:25px">At our Company, we are committed to helping our employees grow and succeed.</p>
+  </center>
+</div>
+
+<div class="container" style="margin-top:40px">
+  <center>
+    <h2>Diversity and Inclusion</h2>
+    <p style="font-size:25px">HomeCareMate is an equal opportunity employer and is committed to diversity and inclusion in the workplace.</p>
+  </center>
+</div>
+
+<div class="container" style="margin-top:60px">
+  <center>
+    <p style="font-size:25px"><b>For more details contact us</b></p>
+  </center>
+</div>
+
+
+{% endblock %}

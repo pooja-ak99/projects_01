@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<center>
+    <div style="width:1000px;background-color:#d1d1d1">
+        {% if apply %}
+
+        <div class="row" style="margin-top:30px">
+            <div class="col-sm-8">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td style="padding-left:30px">{{apply.fullname}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td style="padding-left:30px">{{apply.gender}}</td>
+                </tr>
+                <tr>
+                    <th>DOB</th>
+                    <td style="padding-left:30px">{{apply.dob}}</td>
+                </tr>
+                <tr>
+                    <th>Qualification</th>
+                    <td style="padding-left:30px">{{apply.qualification}}</td>
+                </tr>
+                <tr>
+                    <th>Skills</th>
+                    <td style="padding-left:30px">{{apply.skills}}</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td style="padding-left:30px">{{apply.phone}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td style="padding-left:30px">{{apply.email}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td style="padding-left:30px">{{apply.address}}</td>
+                </tr>
+                <tr>
+                    <th>Current Location</th>
+                    <td style="padding-left:30px">{{apply.location}}</td>
+                </tr>
+                <tr>
+                    <th>Resume</th>
+                    <td style="padding-left:30px"><a style="color:black" href="{{apply.resume.url}}">Click here to Download resume</a></td>
+                </tr>
+                <tr>
+                    <th>ID proof</th>
+                    <td style="padding-left:30px"><a style="color:black" href="{{apply.id_proof.url}}">Click here to Download ID proof</a></td>
+                </tr>
+            </table>
+            </div>
+            <div class="col-sm-4">
+            <img style="height:150px;width:120px;border-radius:50%;margin-left:50px;margin-top:50px;" src="{{apply.profile_photo.url}}">
+        </div>
+        </div>
+        {% endif %}
+    </div>
+
+</center>
+{% endblock %}

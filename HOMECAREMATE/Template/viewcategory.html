@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body style="backgorund-color:">
+<center>
+    <h2>SERVICE CATEGORIES</h2>
+
+    <br>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Category</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </tr>
+        {% for i in v %}
+        <tr>
+            <td>{{i.category_name}}</td>
+            <td><a class="btn btn-secondary" href="{% url 'editcategory' i.id %}">EDIT</a></td>
+            <td><a class="btn btn-secondary" href="{% url 'erase' i.id %}">DELETE</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <a class="btn btn-success" href="{% url 'addcategory' %}">ADD SERVICE CATEGORY</a>
+
+</center>
+</body>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<!--<div class="container-fluid page-header mb-5 py-5" style="background-image:url('{% static 'image/cover04.jpg' %}')">-->
+<!--    <div class="container">-->
+<!--&lt;!&ndash;        <div class="container">&ndash;&gt;-->
+<!--            <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>-->
+<!--            <nav aria-label="breadcrumb animated slideInDown">-->
+<!--                <ol class="breadcrumb text-uppercase">-->
+<!--                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>-->
+<!--                    <li class="breadcrumb-item text-white active" aria-current="page">Services</li>-->
+<!--                </ol>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+<!--1st block start-->
+ <div class="container">
+     <div class="row" style="height:400px">
+         <div class="col-sm-3 d-flex align-items-center justify-content-center" style="background-color:#222124;">
+                    <h1 class="display-3 text-white m-0" style="transform: rotate(-90deg);">6 Years Experience</h1>
+                </div>
+
+         <div class="col-sm-9">
+             <center>
+                 {% if cat %}
+                 <h1 style="font-weight:bold;font-size:100px">{{cat.category_name}}</h1><br>
+                 <p style="font-size:25px;color:gray"><b>{{cat.description}}</b></p>
+<!--                  <a class="btn btn-light py-3" href="" style="font-size:40px">BOOK A SERVICE NOW ></a>-->
+             </center>
+            </div>
+         </div>
+     <center>
+         <div style="margin-top:30px">
+             {% if user.is_authenticated %}
+             <a class="btn btn-light py-3" href="{% url 'booking' %}" style="font-size:40px">BOOK A SERVICE NOW ></a>
+             {% else %}
+             <a class="btn btn-light py-3" href="{% url 'login' %}" style="font-size:40px">Log in to book a service ></a>
+             {% endif %}
+         </div>
+     </center>
+ </div>
+<!--1st block end-->
+
+<br><br>
+<!--2nd block start-->
+<div class="row">
+<div class="col-sm-12">
+    <img src="{{cat.cover_image.url}}" style="width:100%;height:400px">
+</div>
+</div>
+<!--2nd block end-->
+
+<br><br>
+<!--4th block start-->
+<!--<center>-->
+<!--    <h1 style="font-weight:bold">OUR TEAM</h1>-->
+<!--</center>-->
+<!--<br>-->
+<!--<div class="row">-->
+<!--        {% for i in emp %}-->
+<!--    <div class="col-md-4" style="margin-bottom:100px"><div class="card ms-5 me-5" style="width:350px;height:500px">-->
+<!--        <a href="">-->
+<!--  <center><img style="height:220px;width:250px;" src="{{i.profile_photo.url}}" class="card-img-top mt-3" alt="..."></center>-->
+<!--        </a>-->
+<!--  <div class="card-body">-->
+
+<!--    <h3 class="card-title" style="font-weight:bold">{{i.employee_name}}</h3>-->
+<!--    <h5><b>Service: {{i.category.category_name}}</b></h5>-->
+<!--    <h5><b>City: {{i.city}}</b></h5>-->
+<!--    <h5>Phone: {{i.phone}}</h5>-->
+<!--    <h5>Email: {{i.email}}</h5>-->
+<!--      <br>-->
+<!--      <a class="btn btn-secondary" href="{% url 'empdetail' i.id %}">PROFILE</a>-->
+
+<!--  </div>-->
+
+<!--</div></div>-->
+<!--         {% endfor %}-->
+<!--    </div>-->
+<!--4th block end-->
+
+<!--3rd block start-->
+<center><h2><b>OUR SERVICES</b></h2></center>
+<div class="container" style="width:1300px">
+    {% for i in poi %}
+    <h5>{{i}}</h5>
+    {% endfor %}
+</div>
+<!--3rd block end-->
+
+<!--4th block start-->
+<center><h2><b>WHY CHOOSE US</b></h2></center>
+<div class="container" style="width:1300px">
+    <h5>1. Expertise: Our team consists of licensed and experienced service providers who are dedicated to delivering superior service.</h5>
+    <h5>2. Reliability: We prioritize customer satisfaction and strive to exceed your expectations with every service call.</h5>
+    <h5>3. Convenience: We work around your schedule to provide timely and efficient solutions, minimizing disruptions to your daily routine.</h5>
+    <h5>4. Transparency: We believe in transparent pricing and communication, ensuring you understand the scope of work and costs involved before we begin.</h5>
+</div>
+<!--4th block end-->
+
+<!--5th block start-->
+<center><h2><b>CONTACT US TODAY</b></h2></center>
+<div class="container" style="width:1300px">
+    <h5>Don't wait until a {{cat.category_name}} problem escalates—schedule your maintenance service with HomeCareMate today! Contact us to learn more about our comprehensive {{cat.category_name}} services and how we can help keep your home's {{cat.category_name}} in excellent condition.</h5>
+</div>
+<!--5th block end-->
+
+
+{% endif %}
+
+{% endblock %}
+

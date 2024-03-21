@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="background-color: #bfbfbf;">
+    <center>
+        <h2 style="margin-top: 30px;">CAREER APPLICATIONS</h2>
+    </center>
+    {% for application in applications %}
+    <br>
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card card-body" style="background-color: #c4c4c4; max-width: 1000px;">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <img class="rounded-circle" style="height: 170px; width: 130px;" src="{{ application.profile_photo.url }}" alt="Profile Photo">
+                        <br><br>
+                        <button class="btn btn-success" onclick="alert('Select action not implemented yet')">Select</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-danger" onclick="confirmReject({{ application.id }})">Reject</button>
+                        {% if application.shortlisted %}
+                        <p style="color:green"><b>Candidate Shortlisted for interview.</b></p>
+                        {% endif %}
+                    </div>
+                    <div class="col-8">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Name:</th>
+                                    <td>{{ application.fullname }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Gender:</th>
+                                    <td>{{ application.gender }}</td>
+                                </tr>
+                                <!-- Add more fields here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    function confirmReject(applicationId) {
+        if (confirm("Are you sure you want to reject this application?")) {
+            console.log("Application rejected:", applicationId);
+
+            var buttons = document.querySelectorAll('.btn');
+            buttons.forEach(function(button) {
+                button.style.display = 'none';
+            });
+
+            var messageDiv = document.createElement('div');
+            messageDiv.textContent = 'Rejected';
+            messageDiv.style.color = 'red';
+            messageDiv.style.fontWeight = 'bold';
+
+            var parentDiv = document.querySelector('.card');
+            parentDiv.appendChild(messageDiv);
+        }
+    }
+</script>
+{% endblock %}

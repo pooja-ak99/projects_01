@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<center>
+    <h2> USER DETAILS </h2>
+    <div class="row" style="margin-top:30px">
+        <h4>SERVICE PROVIDERS</h4>
+        <div class="col-sm-12">
+        <table class="table table-bordered" style="margin-top:30px;margin-right:10px;margin-left:10px;">
+            <tr>
+                <th>PROFILE</th>
+                <th>NAME</th>
+                <th>SERVICE</th>
+                <th>LOCATION</th>
+                <th>CONTACT DETAILS</th>
+                <th>UPDATE</th>
+            </tr>
+            {% for i in ad %}
+            <tr>
+                <td><img style="height:120px;width:150px;border-radius:50%;margin-right:20px;margin-top:20px" src="{{i.profile_photo.url}}"></td>
+                <td>{{i.Username}}</td>
+                <td>{{i.skills}}</td>
+                <td>{{i.location}}</td>
+                <td>
+                    <p>Phone: {{i.phone}}</p>
+                    <p>Email: {{i.email}}</p>
+                    <p>Address: {{i.address}}</p>
+                </td>
+                <td><a style="margin-left:30px" class="btn btn-danger" href="">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+           </div>
+    </div>
+</center>
+{% endblock %}

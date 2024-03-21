@@ -1,0 +1,43 @@
+<!--<!DOCTYPE html>-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if allcat1 %}
+<div class="row">
+<div class="col-sm-12">
+    <img src="{{allcat1.image.url}}" style="width:100%;height:400px">
+</div>
+</div>
+<center>
+    <h1 style="font-family: 'Lilita One', sans-serif;">{{allcat1.name}}</h1>
+    <br>
+    <p><b>{{allcat1.descritpion}}</b></p>
+</center>
+
+<br><br>
+
+<div class="row">
+        {% for i in allpro %}
+    <div class="col-md-4" style="margin-bottom:100px"><div class="card ms-5 me-5" style="width:350px;height:480px">
+        <a href="{% url 'Shop:productdetails' i.id %}">
+  <center><img style="height:220px;width:340px;" src="{{i.image.url}}" class="card-img-top mt-1" alt="..."></center>
+        </a>
+  <div class="card-body">
+      <center>
+    <h3 class="card-title" style="font-weight:bold">{{i.name}}</h3>
+    <p>{{i.description}}</p>
+    <h4><b>Rs.{{i.price}}</b></h4>
+    <p>Stock:{{i.stock}}</p>
+          </center>
+  </div>
+
+</div></div>
+         {% endfor %}
+    </div>
+
+{% endif %}
+
+
+{% endblock %}

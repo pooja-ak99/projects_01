@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-sm-12">
+    <img src="{% static 'image/ban1.jpg' %}" style="width:100%;height:400px">
+</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 mt-4" style="margin-bottom:50px">
+        <center>
+        <h3 style="font-family: 'Lilita One', sans-serif;">Our Collections</h3>
+        <p style="font-weight:bold">In a typical fashion collection (considering its size), you’ll usually find at least 12 pieces or looks.
+            But collections can vary in size, and this depends on things like the season, how long the collection will be available, the budget, and other factors.
+            Some collections are smaller and might have only 8 pieces; these are often called “capsule collections”.
+            On the other hand, larger brands might have collections with dozens of pieces. There isn’t a maximum number of pieces – it all depends on the brand’s sales strategy and budget.
+            Also, the type of clothes your brand makes can influence the collection’s size. Some brands might have more individual pieces, while others focus on creating complete outfits or looks.</p>
+        </center>
+    </div>
+</div>
+
+<div style="background-image:url('{% static 'image/bg1.jpg' %}')">
+
+<center><h1 style="font-family: 'Lilita One', sans-serif;">CATEGORIES</h1></center>
+    <br>
+
+    <div class="row">
+        {% for i in allcat %}
+    <div class="col-md-4" style="margin-bottom:100px"><div class="card ms-5 me-5" style="width:350px;height:400px">
+  <center><img style="height:220px;width:340px;" src="{{i.image.url}}" class="card-img-top mt-1" alt="..."></center>
+  <div class="card-body">
+      <center>
+    <h4 class="card-title" style="font-weight:bold">{{i.name}}</h4>
+<!--    <p style="font-size:15px" class="card-text">{{i.descritpion}}</p>-->
+          <br>
+    <a href="{% url 'Shop:allproducts' i.name %}" class="btn btn-danger" style="font-weight:bold">SHOP</a>
+      </center>
+  </div>
+</div></div>
+         {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

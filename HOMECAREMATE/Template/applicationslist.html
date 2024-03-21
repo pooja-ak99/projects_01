@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body style="background-color:#bfbfbf">
+
+
+<div>
+   <center> <h2 style="margin-top:30px">CAREER APPLICATIONS</h2></center>
+    {% for i in a1 %}
+    <br>
+    <p>
+
+</p>
+<div  class="row">
+  <div class="col">
+
+      <div class="card card-body" style="background-color:#c4c4c4;width:1000px;margin-left:180px">
+        <div class="row">
+            <div class="col-4">
+                <img style="height:170px;width:130px;border-radius:50%;margin-left:70px;" src="{{i.profile_photo.url}}"><br><br><br>
+<!--                <a style="margin-left:30px" class="btn btn-success" href="">Select</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--                <a style="margin-left:30px" class="btn btn-danger" href="{% url 'delete' i.id %}">Reject</a>-->
+<!--                {% if candidate_shortlisted %}-->
+<!--                <p style="color:green"><b>Candidate Shortlisted for interview.</b></p>-->
+<!--                {% endif %}-->
+
+
+<!--                <form method="POST">-->
+<!--                    {% csrf_token %}-->
+
+                    <nav class="navbar navbar-expand-lg">
+<!--  <div class="container-fluid">-->
+        <ul>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'delete' i.id %}">REJECT</a></li>
+            <li><a class="dropdown-item" href="">SELECT</a></li>
+          </ul>
+        </li>
+</ul>
+<!--    </div>-->
+                    </nav>
+<!--                </form>-->
+
+<!--                <label class="form-label"><b>STATUS</b></label>-->
+<!--                    <input type="hidden" name="id" value="{{i.id}}">-->
+<!--        <select id="status" name="s" onchange="this.form.submit()">-->
+<!--            <option value="pending">PENDING</option>-->
+<!--            <option value="selected">SELECT</option>-->
+<!--            <option value="rejected"><a style="margin-left:30px" class="btn btn-danger" href="{% url 'delete' i.id %}">REJECT</a></option>-->
+<!--        </select>-->
+<!--                          <input type="submit" class="form control m-3" style="background-color:#97bbbd;font-weight:bold">-->
+
+
+<!--                <form method="post">-->
+<!--                        {% csrf_token %}-->
+<!--                        <input type="hidden" name="application_id" value="{{ application.id }}">-->
+<!--                        <select name="status" onchange="this.form.submit()">-->
+<!--                            {% if i.status == 'pending' %}-->
+<!--                            <option value="pending">Pending</option>-->
+<!--                            {% endif %}-->
+<!--                            {% if i.status == 'selected' %}-->
+<!--                            <option value="selected">Selected</option>-->
+<!--                            {% endif %}-->
+<!--                            {% if i.status == 'rejected' %}-->
+<!--                            <option value="rejected" >Rejected</option>-->
+<!--                            {% endif %}-->
+<!--                        </select>-->
+<!--                    </form>-->
+
+
+<!--                    <form action="{% url 'remove' i.id %}" method="post">-->
+<!--                        {% csrf_token %}-->
+<!--                        <button type="submit">Delete</button>-->
+<!--                    </form>-->
+            </div>
+            <div class="col-8">
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td style="padding-left:30px">{{i.fullname}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td style="padding-left:30px">{{i.gender}}</td>
+                </tr>
+                <tr>
+                    <th>DOB</th>
+                    <td style="padding-left:30px">{{i.dob}}</td>
+                </tr>
+                <tr>
+                    <th>Qualification</th>
+                    <td style="padding-left:30px">{{i.qualification}}</td>
+                </tr>
+                <tr>
+                    <th>Skills</th>
+                    <td style="padding-left:30px">{{i.skills}}</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td style="padding-left:30px">{{i.phone}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td style="padding-left:30px">{{i.email}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td style="padding-left:30px">{{i.address}}</td>
+                </tr>
+                <tr>
+                    <th>Current Location</th>
+                    <td style="padding-left:30px">{{i.location}}</td>
+                </tr>
+                <tr>
+                    <th>Resume</th>
+                    <td style="padding-left:30px"><a style="color:black" href="{{i.resume.url}}">Click here to Download resume</a></td>
+                </tr>
+                <tr>
+                    <th>ID proof</th>
+                    <td style="padding-left:30px"><a style="color:black" href="{{i.id_proof.url}}">Click here to Download ID proof</a></td>
+                </tr>
+            </table>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+    {% endfor %}
+
+</body>
+{% endblock %}
+
+
+

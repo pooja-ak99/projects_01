@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body style="background-color:#bfbfbf">
+<center>
+    <h2>Add Service Category</h2>
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table table-bordered">
+                {{form.as_table}}
+            </table>
+            <input type="submit">
+        </form>
+    </div>
+</center>
+</body>
+
+{% endblock %}
